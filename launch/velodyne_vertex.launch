@@ -1,0 +1,39 @@
+<launch>
+  <arg name="scan_line" default="16"/>
+  <arg name="click_filter_pts" default="true"/>
+
+  <!-- m -->
+  <arg name="filter_xmin" default="2.2"/>
+  <arg name="filter_xmax" default="2.5"/>
+  <arg name="filter_ymin" default="-1.7"/>
+  <arg name="filter_ymax" default="-0.4"/>
+  <arg name="filter_zmin" default="-1.0"/>
+  <arg name="filter_zmax" default="0.3"/>
+
+  <arg name="distance_thresh" default="0.01"/>
+  <arg name="error_thresh" default="0.5"/><!--0.07-->
+
+  <!-- m -->
+  <arg name="left_line_real_length" default="0.81"/> <!--0.905 m  0.81 m-->
+  <arg name="right_line_real_length" default="0.81"/>
+
+
+  <node pkg="velo_cam_calibration" type="velodyne_vertex_node" name="velodyne_vertex_node" output="screen">
+    <param name="scan_line" value="$(arg scan_line)"/>
+    <param name="click_filter_pts" value="$(arg click_filter_pts)"/>
+
+    <param name="filter_xmin" value="$(arg filter_xmin)"/>
+    <param name="filter_xmax" value="$(arg filter_xmax)"/>
+    <param name="filter_ymin" value="$(arg filter_ymin)"/>
+    <param name="filter_ymax" value="$(arg filter_ymax)"/>
+    <param name="filter_zmin" value="$(arg filter_zmin)"/>
+    <param name="filter_zmax" value="$(arg filter_zmax)"/>
+
+    <param name="distance_thresh" value="$(arg distance_thresh)"/>
+    <param name="error_thresh" value="$(arg error_thresh)"/>
+
+    <param name="left_line_real_length" value="$(arg left_line_real_length)"/>
+    <param name="right_line_real_length" value="$(arg right_line_real_length)"/>
+
+  </node>
+</launch>
